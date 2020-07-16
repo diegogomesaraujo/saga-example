@@ -256,3 +256,7 @@ nbdist/
 
 .idea/
 *.iml
+
+.mvn/
+.classpath
+.project
