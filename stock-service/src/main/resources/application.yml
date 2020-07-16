@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: stock-service
+
+  data:
+    mongodb:
+      uri: mongodb://stock-app:stock%40123@localhost:27017/stock
+
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+
+  kafka:
+    consumer:
+      group-id: stock-service
+      auto-offset-reset: earliest
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
