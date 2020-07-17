@@ -1,11 +1,18 @@
 package com.example.domain;
 
-public enum OrderStatus {
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
-    PROCESSING,
-    PENDING,
-    PAID_OUT,
-    FINISHED,
-    CANCELED;
+import java.time.LocalDateTime;
+
+@Getter
+@AllArgsConstructor
+@Builder
+public class OrderStatus {
+
+    private OrderStatusType type;
+
+    private LocalDateTime date;
 
 }

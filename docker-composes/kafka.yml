@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   zookeeper:
+    container_name: zookeeper
     image: 'docker.io/bitnami/zookeeper:latest'
     ports:
       - '2181:2181'
@@ -13,6 +14,7 @@ services:
       - kafka_net
 
   kafka:
+    container_name: kafka
     image: 'docker.io/bitnami/kafka:latest'
     ports:
       - '9092:9092'
@@ -24,7 +26,7 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CLIENT:PLAINTEXT,EXTERNAL:PLAINTEXT
       - KAFKA_CFG_LISTENERS=CLIENT://:9092,EXTERNAL://:9093
-      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://localhost:9092,EXTERNAL://localhost:9093
+      - KAFKA_CFG_ADVERTISED_LISTENERS=CLIENT://kafka-local:9092,EXTERNAL://kafka-local:9093
       - KAFKA_INTER_BROKER_LISTENER_NAME=CLIENT
     depends_on:
       - zookeeper

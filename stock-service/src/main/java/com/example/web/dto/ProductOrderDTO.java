@@ -1,13 +1,15 @@
-package com.example.domain;
+package com.example.web.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class Product {
+public class ProductOrderDTO {
 
     private String id;
     private Integer amount;

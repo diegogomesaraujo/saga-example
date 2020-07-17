@@ -7,7 +7,7 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://payment-app:payment%40123@localhost:27017/payment
+      uri: mongodb://payment-app:payment%40123@mongodb-local:27017/payment
 
   cloud:
     loadbalancer:
@@ -18,6 +18,7 @@ spring:
     consumer:
       group-id: payment-service
       auto-offset-reset: earliest
+    bootstrap-servers: kafka-local:9092
 
 eureka:
   client:

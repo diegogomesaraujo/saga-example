@@ -7,17 +7,13 @@ spring:
 
   data:
     mongodb:
-      uri: mongodb://order-app:order%40123@localhost:27017/order
-
-  cloud:
-    loadbalancer:
-      ribbon:
-        enabled: false
+      uri: mongodb://order-app:order%40123@mongodb-local:27017/order
 
   kafka:
     consumer:
       group-id: order-service
       auto-offset-reset: earliest
+    bootstrap-servers: kafka-local:9092
 
 eureka:
   client:
@@ -25,3 +21,7 @@ eureka:
     register-with-eureka: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+
+kafka:
+  topics:
+    orders-log: orders-log

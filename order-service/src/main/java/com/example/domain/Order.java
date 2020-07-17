@@ -2,17 +2,17 @@ package com.example.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-@Data
+@Getter
 @AllArgsConstructor
-@NoArgsConstructor
 @Builder
 @Document(collection = "orders")
 public class Order {
@@ -22,8 +22,16 @@ public class Order {
 
     private LocalDateTime date;
 
-    private List<Product> products;
+    private Set<Product> products;
 
     private List<OrderStatus> statusHistory;
+
+    public void addStatus(OrderStatus status) {
+        if(statusHistory == null) {
+            statusHistory = new ArrayList<>();
+        }
+
+        statusHistory.add(status);
+    }
 
 }
