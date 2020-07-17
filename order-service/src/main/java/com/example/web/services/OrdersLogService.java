@@ -19,7 +19,7 @@ public class OrdersLogService {
     private JsonKafkaProducer jsonKafkaProducer;
 
     public void processPayment(Order order, PaymentDTO payment) {
-        OrderMessage
+        //OrderMessage
 
         //jsonKafkaProducer.send(topic, EventType.PROCESS_PAYMENT, );
     }
